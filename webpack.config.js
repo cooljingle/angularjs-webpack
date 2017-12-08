@@ -12,6 +12,8 @@ var CopyWebpackPlugin = require('copy-webpack-plugin');
  * Get npm lifecycle event to identify the environment
  */
 var ENV = process.env.npm_lifecycle_event;
+console.log(`env is ${ENV}`);
+console.log(`__dirname is ${__dirname}`);
 var isTest = ENV === 'test' || ENV === 'test-watch';
 var isProd = ENV === 'build';
 
@@ -88,6 +90,10 @@ module.exports = function makeWebpackConfig() {
       test: /\.js$/,
       loader: 'babel-loader',
       exclude: /node_modules/
+    }, {
+      test: /sigma.*/,
+      include: /node_modules/,
+      use: 'imports-loader?this=>window'
     }, {
       // CSS LOADER
       // Reference: https://github.com/webpack/css-loader
@@ -167,6 +173,12 @@ module.exports = function makeWebpackConfig() {
           plugins: [autoprefixer]
         }
       }
+    }),
+    new webpack.ProvidePlugin({
+      sigma: 'sigma'
+    }),
+    new webpack.LoaderOptionsPlugin({
+      debug: true
     })
   ];
 

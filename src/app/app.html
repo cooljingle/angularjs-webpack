@@ -1,9 +1,14 @@
 <main>
-  <h1 class="title">Hello from Angular !</h1>
+  <button ng-click="app.BuildHelloWorld()">Hello World</button>
+  <button ng-click="app.BuildBasic()">Basic</button>
+  <button ng-click="app.BuildTree()">Tree</button>
+  <h1 class="title">{{app.title}}</h1> 
+  <div id="graph-container"></div>
+</main>
 
   <!-- Images (and assets) are parsed and loaded from within the public directory -->
-  <img src="/img/logo.png">
+  <!-- <img src="/img/logo.png"> -->
 </main>
 <footer>
-  <a ng-href="{{app.url}}">Webpack Angular Starter</a>
+  <!-- <a ng-href="{{app.url}}">Webpack Angular Starter</a> -->
 </footer>
