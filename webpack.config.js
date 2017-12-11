@@ -6,6 +6,7 @@ var autoprefixer = require('autoprefixer');
 var HtmlWebpackPlugin = require('html-webpack-plugin');
 var ExtractTextPlugin = require('extract-text-webpack-plugin');
 var CopyWebpackPlugin = require('copy-webpack-plugin');
+var path = require('path');
 
 /**
  * Env
@@ -79,7 +80,7 @@ module.exports = function makeWebpackConfig() {
    * List: http://webpack.github.io/docs/list-of-loaders.html
    * This handles most of the magic responsible for converting modules
    */
-
+console.log(require('path').resolve(__dirname, "src/app/plugins"));
   // Initialize module
   config.module = {
     rules: [{
@@ -92,6 +93,12 @@ module.exports = function makeWebpackConfig() {
       exclude: /node_modules/
     }, {
       test: /sigma.*/,
+      include: [
+        path.resolve(__dirname, "node_modules/sigma/")
+      ],
+      use: 'imports-loader?this=>window'
+    }, {
+      test: /dagre.*/,
       include: /node_modules/,
       use: 'imports-loader?this=>window'
     }, {

@@ -21,6 +21,8 @@
   "homepage": "https://github.com/preboot/angularjs-webpack",
   "dependencies": {
     "angular": "^1.5.0",
+    "dagre": "^0.7.4",
+    "lodash": "^4.17.4",
     "sigma": "^1.2.1"
   },
   "devDependencies": {

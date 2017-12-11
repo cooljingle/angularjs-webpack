@@ -1,9 +1,13 @@
 <main>
   <button ng-click="app.BuildHelloWorld()">Hello World</button>
   <button ng-click="app.BuildBasic()">Basic</button>
-  <button ng-click="app.BuildTree()">Tree</button>
+  <button ng-click="app.BuildDagreTree()">Dagre Tree</button>
+  <button ng-click="app.BuildCustomTree()">Custom Tree</button>
   <h1 class="title">{{app.title}}</h1> 
-  <div id="graph-container"></div>
+  <div id="graph-container">
+      <div id="disc"></div>
+      <div id="ground"></div>
+  </div>
 </main>
 
   <!-- Images (and assets) are parsed and loaded from within the public directory -->
